@@ -1,5 +1,27 @@
 # Project-Flashcards
-Flashcard-o-matic
-A local school has decided to put together a flash card application, Flashcard-o-matic, to help their students study online.
+
+developed a flash card application,this app is designed to help students study online.
+
 Teachers will use this application to create decks of flash cards for the subjects that they teach, and students will study the decks.
-The school needs you to build the application that the students and teachers will use.
+
+Built using JavaScript, React, HTML, and Bootstrap.
+
+Manage States using React Hooks like useState, useEffect.
+
+Manage routes and links using React Router Library.
+
+
+# Installation Instructions
+
+to run this app on your machine follow these steps: 
+
+Fork this repository by clicking the Fork button at the top right of the page
+
+Clone this repository.
+
+cd into the newly created directory.
+
+Run npm install.
+
+Run npm start.
+
