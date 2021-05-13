@@ -19,6 +19,8 @@ Fork this repository by clicking the Fork button at the top right of the page
 
 Clone this repository.
 
+In your terminal:
+
 cd into the newly created directory.
 
 Run npm install.
