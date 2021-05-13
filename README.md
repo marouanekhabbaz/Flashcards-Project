@@ -1,6 +1,6 @@
 # Project-Flashcards
 
-developed a flash card application,this app is designed to help students study online.
+Developed a flash card application,this app is designed to help students study online.
 
 Teachers will use this application to create decks of flash cards for the subjects that they teach, and students will study the decks.
 
