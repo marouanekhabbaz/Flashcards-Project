@@ -13,7 +13,7 @@ Manage routes and links using React Router Library.
 
 # Installation Instructions
 
-to run this app on your machine follow these steps: 
+To run this app on your machine follow these steps: 
 
 Fork this repository by clicking the Fork button at the top right of the page
 
