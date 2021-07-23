@@ -1,9 +1,7 @@
-import { getElementError } from "@testing-library/react";
+
 import React ,{useEffect, useState}from "react";
 
-import { Route, Switch , Router } from "react-router-dom";
-
-import { listDecks , listCards, deleteDeck} from "../utils/api/index"
+import { listDecks , deleteDeck} from "../utils/api/index"
 
 function Home (){
 
@@ -22,18 +20,20 @@ function Home (){
   useEffect(() => {
     load()
   }, [isDelete]);
+
+
 const deleteHundler =(event)=>{
-let message= "Are you sure you want delete this deck?"
+  let message= "Are you sure you want delete this deck?"
 
-let x = event.target.id;
+  let x = event.target.id;
 
-let result = window.confirm(message)
+  let result = window.confirm(message)
 
+  let deckToDelete = decks.find((deck)=> deck.id === parseInt(x,10) );
 
-let deckToDelete = decks.find((deck)=> deck.id == parseInt(x,10) );
-
-result && deleteDeck(deckToDelete.id) && setIsDelete(!isDelete)
+  result && deleteDeck(deckToDelete.id) && setIsDelete(!isDelete)
 }
+
  let list=  decks.map((deck, index)=>{
     return ( 
   <div key={index} id= {index} class="card mb-2" >

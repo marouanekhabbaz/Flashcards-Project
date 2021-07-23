@@ -1,9 +1,7 @@
-import { getElementError } from "@testing-library/react";
 import React ,{useEffect, useState}from "react";
 import {readCard, readDeck} from "../utils/api/index"
-import { Route, Switch , Router , useParams , useHistory} from "react-router-dom";
-import {updateDeck} from "../utils/api/index"
-import { listDecks , listCards , updateCard} from "../utils/api/index"
+import {  useParams , useHistory} from "react-router-dom";
+import {  updateCard } from "../utils/api/index"
 
 function EditCard(){
 const [card, setCard]= useState({front:"hey", back:"beby"})
@@ -11,13 +9,16 @@ console.log(card)
 const [deck , setDeck]= useState({name:""})
 const history = useHistory()
 let {deckId , cardId}= useParams()
+
 useEffect(()=>{
     async function load(){
         const theDeck= await readDeck(deckId);
         setDeck(theDeck);
     }
     load()
-},[])
+},[deckId , cardId])
+
+
 useEffect(()=>{
     async function load(){
         try{
@@ -29,7 +30,9 @@ useEffect(()=>{
     }
     load()
 }
-,[deck])
+,[deck, cardId])
+
+
 const frontChange =(event)=>{
     setCard({
         ...card,

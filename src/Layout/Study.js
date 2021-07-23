@@ -1,31 +1,28 @@
 import React ,{useEffect, useState}from "react";
-import { Route, Switch , Router , useParams , useHistory} from "react-router-dom";
-import { listDecks , listCards} from "../utils/api/index"
-import {readCard , readDeck} from "../utils/api/index"
+import {  useParams , useHistory, Link} from "react-router-dom";
+import { readDeck } from "../utils/api/index"
 
 function Study(){
     const {deckId} = useParams();
     let history = useHistory();
-    const initial ={ fliped : false,
-                        index: 0}
+
+    const initial ={fliped : false, index: 0}
 
     const [deck , setDeck] = useState({})
     const [card , setCard]= useState(initial);
     const [click, setClick]=useState(0)
 
+  useEffect( ()=>{
     async function load(){
       let dec = await  readDeck(deckId) 
       setDeck(dec)
-      let x = dec.card
+      // let x = dec.card
       
       setCard(dec.cards[click])
       
             }
-
-  useEffect( ()=>{
-
-load()
-  }, [click])
+    load()
+  }, [click , deckId] )
 
 const fliphundler = ()=>{
 setCard({
@@ -54,7 +51,7 @@ function Content () {
               <blockquote class="blockquote mb-0">
               <p> You need at least 3 cards to study. There are 2 cards in this deck.</p>
             
-              <a href={`/decks/${deckId}/cards/new`}  class="btn btn-outline-primary mr-2" >  Add Cards </a>
+              <Link to={`/decks/${deckId}/cards/new`}  class="btn btn-outline-primary mr-2" >  Add Cards </Link>
 
               </blockquote>
             </div>
@@ -81,8 +78,8 @@ return(
  <div>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-             <li class="breadcrumb-item"><a href="/">Home</a></li>
-             <li class="breadcrumb-item"><a href="#"></a>  {deck.name} </li>
+             <li class="breadcrumb-item"><Link to="/">Home</Link></li>
+             <li class="breadcrumb-item"><Link href="#"> {deck.name} </Link>  </li>
               <li class="breadcrumb-item active" aria-current="page">Study</li>
         </ol>
         </nav>

@@ -1,8 +1,8 @@
-import { getElementError } from "@testing-library/react";
+
 import React ,{useEffect, useState}from "react";
-import { Route, Switch , Router , useParams , useHistory} from "react-router-dom";
+import {   useParams } from "react-router-dom";
 import { createCard , readDeck  } from "../utils/api/index"
-import { listDecks , listCards} from "../utils/api/index"
+
 
 
     
@@ -12,7 +12,6 @@ function AddCard (){
     const {deckId}= useParams();
     const [deck , setDeck] = useState({})
     const [card , setCard] = useState({front:"", back:""})
- console.log(card)
 
     useEffect(()=>{
         async function load (){
@@ -20,13 +19,15 @@ function AddCard (){
             setDeck(theDeck)
         }
         load()
-    },[] )
+    },[deckId] )
+
     const frontChange = (e) => {
         setCard({
             ...card,
             front: e.target.value
         })
     }
+
   const backChange = (e) => {
         setCard({
             ...card,
@@ -34,10 +35,10 @@ function AddCard (){
         })
     }
     
-const submitHundler =()=>{
+    const submitHundler =()=>{
     createCard(deckId, card) ;
     setCard({front:'', back:"" })
-}
+    }
 
 return  (<> 
 <h1>add card </h1>

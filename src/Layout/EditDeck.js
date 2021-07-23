@@ -1,24 +1,25 @@
-import { getElementError } from "@testing-library/react";
+
 import React ,{useEffect, useState}from "react";
 import {readDeck} from "../utils/api/index"
-import { Route, Switch , Router , useParams , useHistory} from "react-router-dom";
+import {useParams , useHistory} from "react-router-dom";
 import {updateDeck} from "../utils/api/index"
-import { listDecks , listCards} from "../utils/api/index"
+
 
 function EditDeck(){
  
   let {deckId} = useParams();
   let history = useHistory();
    const [deck , setDeck] = useState({name:"" , description:""});
-   const [clicked , setClicked]= useState(false)
+  //  const [clicked , setClicked]= useState(false)
+  console.log(deck)
 
-   async function load(){
-    const deckToLoad= await readDeck(deckId)
-    setDeck(deckToLoad)
-}
    useEffect(()=>{
-    load()
-   },[]);
+    async function load(){
+      const deckToLoad= await readDeck(deckId)
+      setDeck(deckToLoad)
+  }
+  load()
+   },[deckId]);
 
       
 const handleNameChange = (event) =>{ setDeck({...deck ,name :event.target.value})};

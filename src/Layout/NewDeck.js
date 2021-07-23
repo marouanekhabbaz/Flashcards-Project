@@ -1,17 +1,7 @@
-import { getElementError } from "@testing-library/react";
-import React ,{useEffect, useState}from "react";
 
-import { Route, Switch , Router , useHistory} from "react-router-dom";
-
-import { listDecks  , createDeck, listCards} from "../utils/api/index"
-
+import React from "react";
 
 function NewDeck({id, handleSubmit,handleNameChange, hundleDescriptionChange , name , description } ){
- 
-  
-
-   
-      
     return(       
 <>
 <nav aria-label="breadcrumb">

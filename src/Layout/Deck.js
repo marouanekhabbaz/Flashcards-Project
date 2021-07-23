@@ -1,9 +1,8 @@
-import { getElementError } from "@testing-library/react";
 import React ,{useEffect, useState}from "react";
 import {readDeck} from "../utils/api/index"
-import { Route, Switch , Router , useParams , useHistory} from "react-router-dom";
+import { useParams , useHistory} from "react-router-dom";
 import {deleteDeck} from "../utils/api/index"
-import { listDecks , listCards, deleteCard } from "../utils/api/index"
+import { deleteCard } from "../utils/api/index"
 
 function Deck () {
 
@@ -12,18 +11,21 @@ function Deck () {
     const [del, setDel]= useState(false)
    const history= useHistory()
 
-   async  function load(){ 
-    try{    
-        const theDeck = await readDeck(deckId)
-        setDeck(theDeck)
-    }
-    catch(error){
-        console.log(error)
-    }}
+  
 
     useEffect(()=>{
+
+        async  function load(){ 
+            try{    
+                const theDeck = await readDeck(deckId)
+                setDeck(theDeck)
+            }
+            catch(error){
+                console.log(error)
+            }}
+
         load()
-    }, [del])
+    }, [ del, deckId ])
 
     const deleteHandler =()=>{
         let message= "Are you sure you want delete this deck?"

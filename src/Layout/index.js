@@ -1,11 +1,11 @@
-import React ,{useEffect, useState}from "react";
+import React ,{useState}from "react";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "./Home"
 import Study from "./Study"
-import { Route, Switch , Router , useHistory} from "react-router-dom";
+import { Route, Switch  , useHistory} from "react-router-dom";
 
-import { listDecks  , createDeck, listCards} from "../utils/api/index"
+import { createDeck } from "../utils/api/index"
 import NewDeck from "./NewDeck";
 import Deck from "./Deck"
 import EditDeck from "./EditDeck";
@@ -58,7 +58,7 @@ const editHundler =(event)=>{
           <Study />
         </Route>
         <Route path="/decks/new">
-          <NewDeck id={id} handleSubmit={handleSubmit}
+          <NewDeck id={id} setId={setId} handleSubmit={handleSubmit}
            hundleDescriptionChange={hundleDescriptionChange}
            handleNameChange={handleNameChange} 
            name={name} description={description} />
