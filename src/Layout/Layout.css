@@ -1,0 +1,97 @@
+#root{
+    font-family: 'Varela', sans-serif;
+}
+
+
+.btn-primary {
+    background-color: #01497C
+}
+.btn-secondary{
+    background-color: #468FAF;
+}
+.btn{
+    width: 80px;
+}
+.btn-lg{
+    width: 200px;
+}
+.remove {
+padding: 0;
+border: none;
+background: none;
+color: #FF1D07;
+
+}
+.study{
+    width: 600px  ;
+    margin-top: 50px;
+}
+.study button {
+        background-color: white;
+        color: #013A63;
+        border: 2px solid #A9D6E5; 
+        border-radius: 3px;
+      }  
+
+.header{
+    background: linear-gradient(to right,#012A4A ,#013A63);
+}
+.breadcrumb{
+    background: linear-gradient(to right,#012A4A ,#013A63);  
+}
+.btn-danger{
+    background-color: #FF1D07;
+}
+
+/* .card-footer{
+    background-color:white ;
+} */
+.l-bg-cherry {
+    height: 150px ;
+    overflow: auto;
+    color: #012A4A;
+  
+}
+
+.l-red{
+    /* background: linear-gradient(to right,#345468,#667D86) !important; */
+    background: linear-gradient(to right,#33415c,#5c677d) !important;
+    color: #F0EDEE;
+}
+
+.border-primary{
+    border: solid 2px #01497C !important;
+
+}
+
+  .form-control {
+    line-height: normal;
+    border: 2px solid #0A090C;
+  }
+  
+  .box {
+    border: solid 10px #01497C;
+    border-radius: 5px;
+    max-width: 768px;
+    margin:  auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+
+  form {
+    padding: 37.5px;
+    margin: 50px 0;
+  }
+  
+.l-bg-orange-dark {
+    background: linear-gradient(to right,#013A63,#01497C) !important;
+    color: #F0EDEE;
+}
+
+.back-side{
+    border: 1px solid #013A63;
+    background: linear-gradient(to right  ,#ffffff) !important;
+    color: #013A63;
+}

@@ -2,6 +2,8 @@
 import React ,{useEffect, useState}from "react";
 
 import { listDecks , deleteDeck} from "../utils/api/index"
+import './Layout.css'
+
 
 function Home (){
 
@@ -36,35 +38,60 @@ const deleteHundler =(event)=>{
 
  let list=  decks.map((deck, index)=>{
     return ( 
-  <div key={index} id= {index} class="card mb-2" >
-  <div class="card-header">
-  {deck.cards.length} cards
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"> {deck.name} </h5>
-    <p class="card-text"> {deck.description} </p>
-    <div class="btn-group mr-2" role="group" aria-label="first group">
-    <a  href= {`/decks/${deck.id}`} class="btn btn-primary"> view  </a>
+
+<div key={index} id= {index}  class="card" >
+  <div class="card-body   l-bg-orange-dark  l-bg-cherry">
+
+
+ 
+    <h5 class="card-title"> {deck.name}  </h5>
+    <h6 class="card-subtitle mb-2 text-muted"> {deck.cards.length} {(deck.cards.length>1)? "Cards": "Card" } </h6>
+    <p class="card-text">{deck.description}</p>
+
     </div>
 
-    <div class="btn-group mr-2" role="group" aria-label="Second group">
-    <a href={`/decks/${deck.id}/study`} type="button" class="btn btn-info"> Study </a>
-  </div>
-  <div class="btn-group mr-2" role="group" aria-label="Third group">
-    <button id={deck.id} onClick={deleteHundler} type="button" class="btn btn-danger  ">delete</button>
-  </div>
-  </div>
+    <div class="card-footer l-bg-orange-dark  ">
+
+       <a  href= {`/decks/${deck.id}`} class="card-link"> View  </a>
+  
+
+ 
+        <a href={`/decks/${deck.id}/study`} type="button" class="card-link ml-2 "> Study </a>
+    
+        <button id={deck.id} onClick={deleteHundler} type="button" class="btn  ml-2 remove ">Delete</button>
+ 
+     
+
+    </div>
 </div>
+
+
+  
+
  )
 })
    return (
     <>
-  <div class="col px-md-5">
-  <a href="/decks/new" class="btn btn-primary"> Create Deck  </a>
-    </div>
-  <div class="col px-md-5"> <div class="p-3 border bg-light"> 
+    <div class="container ">
+
+  <div class= " d-flex justify-content-center mb-4">
+
+    <a href="/decks/new"  class="btn l-bg-orange-dark  btn-lg">  Create Deck <i class="bi bi-plus">+</i>  </a>
+  
+  </div>
+  
+ 
+
+  
+  <div class="card-columns mb-5">
+
   {list}
-  </div> </div>
+  </div>
+
+  </div>
+ 
+
+  
 
     </>
   )
@@ -72,3 +99,4 @@ const deleteHundler =(event)=>{
 
 
 export default Home
+

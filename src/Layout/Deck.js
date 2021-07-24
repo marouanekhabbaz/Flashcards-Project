@@ -3,6 +3,7 @@ import {readDeck} from "../utils/api/index"
 import { useParams , useHistory} from "react-router-dom";
 import {deleteDeck} from "../utils/api/index"
 import { deleteCard } from "../utils/api/index"
+import './Layout.css'
 
 function Deck () {
 
@@ -44,21 +45,27 @@ const deleteCardHundler= (e)=>{
     let cards = (deck.cards)? deck.cards: [];
     let cardsList= cards.map((card, index)=>{
         return(
-            <div key={index} class="card mb-2">
-             <div class="card-header ">
-             Card {index+1}
-             </div>
-                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                         <p>{card.front}</p>
-                         <p>{card.back}</p>
-                         <button id={card.id} onClick={deleteCardHundler} type="button" class="btn btn-danger mr-2">delete</button>
-                        <a href={`/decks/${deckId}/cards/${card.id}/edit`} class="btn btn-info mr-2">Edit</a>
-                     </blockquote>
+
+                <div key={index} id= {index}  class="card border-primary mb-3"  >
+                 <div class="card-body  l-bg-cherry">
+
+                 <h5 class="card-title  "> Card {index+1}  </h5>
+                 {/* <h6 class="card-subtitle mb-2  "> </h6> */}
+                         <p class="card-text" >Front: {card.front}</p>
+                         <p class="card-text">Back: {card.back}</p>
+                 </div>
+                         <div class="card-footer ">
+
+                         <a href={`/decks/${deckId}/cards/${card.id}/edit`} class="card-link mr-2">Edit</a>
+            
+                         <button id={card.id} onClick={deleteCardHundler} type="button" class="remove ml-2">delete</button>
+                     
                 </div>
           </div>
         )
     })
+
+
 
    if (!deck){
        return(
@@ -74,26 +81,49 @@ const deleteCardHundler= (e)=>{
    }
 return (
     <>
-<nav aria-label="breadcrumb">
+{/* <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
              <li class="breadcrumb-item"><a href="/">Home</a></li>
-
-              <li class="breadcrumb-item active" aria-current="page">{deck.name}</li>
+            <li class="breadcrumb-item active" aria-current="page">{deck.name}</li>
         </ol>
- </nav>
- <div class="card">
-     <div class="card-header"> {deck.name} </div>
-  <div class="card-body">
-    <h5 class="card-title">{deck.name}</h5>
-    <p class="card-text">{deck.description}</p>
-    <a href={`/decks/${deck.id}/edit`}  class="btn btn-info mr-2">Edit</a>
-    <a href={`/decks/${deckId}/study`} class="btn btn-primary mr-2">study</a>
-    <a href={`/decks/${deckId}/cards/new`} class="btn btn-secondary mr-2">Add Cards</a>
-    <button onClick={deleteHandler} type="button" class="btn btn-danger mr-2">delete</button>
-  </div> 
+ </nav> */}
+
+ <div class="card text-center">
+  <div class="card-header l-bg-orange-dark " >
+  <ul class="nav nav-pills card-header-pills">
+
+     <li class="nav-item">
+        <a class="nav-link disabled" href={`/decks/${deckId}/study`} >{deck.name}</a>
+      </li>
+
+      <li class="nav-item">
+      <a class="nav-link " href="/">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href={`/decks/${deck.id}/edit`} >Edit</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href={`/decks/${deckId}/study`}>Study</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href={`/decks/${deckId}/cards/new`}>Add Cards</a>
+      </li>
+    </ul>
   </div>
-  <h1> cards </h1>
+  <div class="card-body l-bg-orange-dark ">
+    <h5 class="card-title"> {deck.name} </h5>
+    <p class="card-text">{deck.description}</p>
+    <button onClick={deleteHandler} type="button" class="btn btn-danger mr-2">Delete</button>
+  </div>
+</div>
+
+
+   <h1> cards </h1>
+
+  <div class="card-columns mb-5">
   {cardsList}
+  </div>
 </>
 )
 }

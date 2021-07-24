@@ -1,6 +1,7 @@
 import React ,{useEffect, useState}from "react";
 import {  useParams , useHistory, Link} from "react-router-dom";
 import { readDeck } from "../utils/api/index"
+import './Layout.css'
 
 function Study(){
     const {deckId} = useParams();
@@ -40,38 +41,69 @@ let message= "do you want to restart this deck?"
 let result = window.confirm(message)
 result ? setClick(0) : history.push("/") }
 }
-function Content () {
-    if (deck.cards && deck.cards.length < 3){
-        return (
-            <div class="card">
-            <div class="card-header">
-           Not enough cards.
-            </div>
-            <div class="card-body">
-              <blockquote class="blockquote mb-0">
-              <p> You need at least 3 cards to study. There are 2 cards in this deck.</p>
-            
-              <Link to={`/decks/${deckId}/cards/new`}  class="btn btn-outline-primary mr-2" >  Add Cards </Link>
 
-              </blockquote>
-            </div>
-          </div>
-        )
-    } else{
+
+
+function Content () {
+
+  let cardHeader= (deck.cards && deck.cards.length < 3)?
+    "Not enough cards.":`card ${click+1} of ${(deck.cards) && deck.cards.length } `;
+
+  let paragraph = (deck.cards && deck.cards.length < 3)? 
+    `You need at least 3 cards to study. There are ${ deck.cards.length} ${(deck.cards.length<2)?'card':'cards'} in this deck.`:
+    (card.fliped)? card.back : card.front;
+
+ let style = (card && card.fliped )? 'back-side': "l-bg-orange-dark"   
+
+ /*
+<div key={index} id= {index}  class="card" >
+  <div class="card-body   l-bg-orange-dark  l-bg-cherry">
+ 
+    <h5 class="card-title"> {deck.name}  </h5>
+    <h6 class="card-subtitle mb-2 text-muted"> {deck.cards.length} {(deck.cards.length>1)? "Cards": "Card" } </h6>
+    <p class="card-text">{deck.description}</p>
+    </div>
+
+    <div class="card-footer l-bg-orange-dark  ">
+       <a  href= {`/decks/${deck.id}`} class="card-link"> View  </a>
+
+        <a href={`/decks/${deck.id}/study`} type="button" class="card-link ml-2 "> Study </a>
+    
+        <button id={deck.id} onClick={deleteHundler} type="button" class="btn  ml-2 remove ">Delete</button>
+ 
+    </div>
+</div>
+
+*/
+
        return (
-         <div class="card">
-        <div class="card-header"> card {click+1} of {(deck.cards) && deck.cards.length } </div>
-            <div class="card-body">
-              <blockquote class="blockquote mb-0">
-              <p> {(card.fliped)? card.back : card.front}</p> 
-              <button type="button" class="btn btn-outline-primary mr-2" onClick={fliphundler}> {card.fliped? " Flip to the front" : "Flip to the Back"} </button>
-                   {card.fliped && <button type="button" class="btn btn-outline-primary mr-2 " onClick={nextHunler}>  Next </button>}
-              </blockquote>
-            </div>
+         <div class={`card ${style} study mb-3`}>
+
+        <div class={`card-body `}>
+           <h5 class="card-title"> {cardHeader}  </h5>
+            <h6 class="card-subtitle mb-2 text-muted">   {card.fliped?"Back" : "Front"  }  </h6>   
+            <p class="card-text"> {paragraph} </p>
+         </div>      
+              {
+                (deck.cards && deck.cards.length >= 3) &&
+                <div class={`card-footer `}>
+                  <button type="button" class=" mr-2" onClick={fliphundler}> 
+                      {/* {card.fliped? "Front" : "Back"}  */}
+                      Flip
+                 </button>
+                  {card.fliped && 
+                  <button type="button" class=" mr-2 " onClick={nextHunler}> 
+                   Next
+                  </button>}  
+                </div>
+              }
+             
+           
           </div>
         )
-    }
+
 }
+
 let content = Content()
 
 return(
@@ -79,13 +111,16 @@ return(
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
              <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-             <li class="breadcrumb-item"><Link href="#"> {deck.name} </Link>  </li>
+             <li class="breadcrumb-item "><Link href="#"> {deck.name} </Link>  </li>
               <li class="breadcrumb-item active" aria-current="page">Study</li>
         </ol>
         </nav>
 
     <h3> Study : {deck.name} </h3>
+    {/* d-flex justify-content-center  */}
+    <div class="d-flex justify-content-center ">
     {content}
+    </div>
 </div>
 )
 }

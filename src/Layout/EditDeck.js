@@ -45,8 +45,10 @@ const handleSubmit = (e) => {
               <li class="breadcrumb-item active" aria-current="page">Edit Deck</li>
         </ol>
         </nav>
+  <div className="box">
+       
  <form> 
-  <div class="form-group">
+  <div class="form-group ">
     <label htmlFor="name">Name</label>
     <input  required onChange={handleNameChange}  type="text" class="form-control"  id="name" name="name" value={deck.name} />
   </div>
@@ -57,6 +59,7 @@ const handleSubmit = (e) => {
   <button onClick={handleSubmit} type="submit" class="btn btn-primary mr-2">Save</button>
   <a href={`/decks/${deckId}`} class="btn btn-secondary mr-2">Cancel</a>
 </form>
+</div>   
  </>      
     )
 }

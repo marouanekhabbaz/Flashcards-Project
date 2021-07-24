@@ -49,6 +49,7 @@ return  (<>
               <li class="breadcrumb-item active" aria-current="page">Add Card</li>
         </ol>
  </nav> 
+ <div className="box">
  <form> 
   <div class="form-group">
     <label htmlFor="front">Front </label>
@@ -61,6 +62,7 @@ return  (<>
   <button  onClick={submitHundler} type="button" class="btn btn-primary mr-2">Save</button>
   <a href= {`/decks/${deckId}`} class="btn btn-secondary mr-2"> Done </a>
 </form>
+</div>
  </>
  )
 }
