@@ -48,7 +48,7 @@ const editHundler =(event)=>{
   return (
     <>
       <Header />
-      <div className="container">
+      {/* <div className="container"> */}
       
         <Switch>   
         <Route exact path="/" >
@@ -79,7 +79,7 @@ const editHundler =(event)=>{
        <NotFound />
        </Route>
        </Switch>
-      </div>
+      {/* </div> */}
     </>
   );
 }

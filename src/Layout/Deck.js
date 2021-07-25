@@ -86,8 +86,9 @@ return (
              <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">{deck.name}</li>
         </ol>
+        List of Card decks 
  </nav> */}
-
+ <div className="container mt-4">
  <div class="card text-center">
   <div class="card-header l-bg-orange-dark " >
   <ul class="nav nav-pills card-header-pills">
@@ -118,12 +119,15 @@ return (
   </div>
 </div>
 
+</div>
+<div  className="card-list">
 
-   <h1> cards </h1>
+   <h1 className="display-4"> List of cards </h1>
 
   <div class="card-columns mb-5">
   {cardsList}
   </div>
+  </div> 
 </>
 )
 }

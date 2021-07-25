@@ -72,9 +72,11 @@ const deleteHundler =(event)=>{
 })
    return (
     <>
+  <h1 className="display-4 card-list"> List of card decks</h1>
+
     <div class="container ">
 
-  <div class= " d-flex justify-content-center mb-4">
+  <div class= " d-flex justify-content-center m-4 ">
 
     <a href="/decks/new"  class="btn l-bg-orange-dark  btn-lg">  Create Deck <i class="bi bi-plus">+</i>  </a>
   

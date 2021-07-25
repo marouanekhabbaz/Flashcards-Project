@@ -41,7 +41,6 @@ function AddCard (){
     }
 
 return  (<> 
-<h1>add card </h1>
     <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
              <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -49,6 +48,8 @@ return  (<>
               <li class="breadcrumb-item active" aria-current="page">Add Card</li>
         </ol>
  </nav> 
+ {/* <h1 className="display-4 card-list">Add card </h1> */}
+
  <div className="box">
  <form> 
   <div class="form-group">

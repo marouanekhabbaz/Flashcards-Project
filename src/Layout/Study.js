@@ -81,7 +81,7 @@ function Content () {
 
         <div class={`card-body `}>
            <h5 class="card-title"> {cardHeader}  </h5>
-            <h6 class="card-subtitle mb-2 text-muted">   {card.fliped?"Back" : "Front"  }  </h6>   
+            <h6 class="card-subtitle mb-2 text-muted">   { (card && card.fliped) ?"Back" : "Front"  }  </h6>   
             <p class="card-text"> {paragraph} </p>
          </div>      
               {
@@ -107,7 +107,8 @@ function Content () {
 let content = Content()
 
 return(
- <div>
+ 
+      <div >
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
              <li class="breadcrumb-item"><Link to="/">Home</Link></li>
@@ -116,12 +117,22 @@ return(
         </ol>
         </nav>
 
-    <h3> Study : {deck.name} </h3>
-    {/* d-flex justify-content-center  */}
+
+
+
+
+        <h2 className="display-4 card-list "> Study : {deck.name} </h2>
+ <div className="container">
     <div class="d-flex justify-content-center ">
     {content}
     </div>
 </div>
+
+</div>
+
+
+
+
 )
 }
 

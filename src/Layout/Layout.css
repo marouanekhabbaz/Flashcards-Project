@@ -35,10 +35,17 @@ color: #FF1D07;
 
 .header{
     background: linear-gradient(to right,#012A4A ,#013A63);
+    margin-bottom: 0px;
+    border-radius: 0px;
 }
-.breadcrumb{
-    background: linear-gradient(to right,#012A4A ,#013A63);  
+
+.breadcrumb{ 
+    background: linear-gradient(to right,#01497C,#014F86 ) !important;
+    border-radius: 0px; 
 }
+
+
+
 .btn-danger{
     background-color: #FF1D07;
 }
@@ -95,3 +102,13 @@ color: #FF1D07;
     background: linear-gradient(to right  ,#ffffff) !important;
     color: #013A63;
 }
+
+
+.card-list {
+color: #013A63;
+margin: 30px;
+}
+
+
+
+
