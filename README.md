@@ -1,14 +1,13 @@
 # Project-Flashcards
 
-Developed a flash card application,this app is designed to help students study online.
+This app is designed to be used by a local school, to help students study online. Teachers will use this application to create decks of flashcards for the subjects that they teach, and students will study the decks. I used JavaScript, React, HTML, and Bootstrap to build this app.
 
-Teachers will use this application to create decks of flash cards for the subjects that they teach, and students will study the decks.
 
-Built using JavaScript, React, HTML, and Bootstrap.
+I managed the State using React Hooks like useState, useEffect.
 
-Manage States using React Hooks like useState, useEffect.
+I manage routes and links using React Router Library.
 
-Manage routes and links using React Router Library.
+[Live App](https://flashcards-project-main-marouanekhabbaz.vercel.app/)
 
 
 # Installation Instructions
