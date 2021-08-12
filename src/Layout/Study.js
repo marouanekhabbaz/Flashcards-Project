@@ -112,7 +112,7 @@ return(
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
              <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-             <li class="breadcrumb-item "><Link href="#"> {deck.name} </Link>  </li>
+             <li class="breadcrumb-item "><Link href=$`/decks/${deckId}`> {deck.name} </Link>  </li>
               <li class="breadcrumb-item active" aria-current="page">Study</li>
         </ol>
         </nav>
