@@ -24,7 +24,7 @@ function Home (){
   }, [isDelete]);
 
 
-const deleteHundler =(event)=>{
+const deleteHundler =  async (event)=>{
   let message= "Are you sure you want delete this deck?"
 
   let x = event.target.id;
@@ -33,7 +33,7 @@ const deleteHundler =(event)=>{
 
   let deckToDelete = decks.find((deck)=> deck.id === parseInt(x,10) );
 
-  result && deleteDeck(deckToDelete.id) && setIsDelete(!isDelete)
+  result && await deleteDeck(deckToDelete.id) && setIsDelete(!isDelete)
 }
 
  let list=  decks.map((deck, index)=>{
